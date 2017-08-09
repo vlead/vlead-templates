@@ -108,7 +108,12 @@ sudo ln /etc/nginx/sites-available/elasticsearch /etc/nginx/sites-enabled/
 #+BEGIN_EXAMPLE
 sudo service nginx reload
 #+END_EXAMPLE
-* Stesp to create vagrant box
+- Run =nginx= and =elasticsearch= on boot time
+#+BEGIN_EXAMPLE
+sudo update-rc.d nginx defaults
+sudo update-rc.d elasticsearch defaults
+#+END_EXAMPLE
+* Steps to create vagrant box
 - Make the Box as Small as possible 
   + We're now going to clean up disk space on the VM so when we package it into
     a new Vagrant box, it's as clean as possible. First, remove APT cache

@@ -1,6 +1,36 @@
 * Introduction
   This document describes the steps to create the vagrant box which is running
+<<<<<<< HEAD:vagrant-boxes/run-elasticsearch-on-vagrant.org
   elasticsearch no sql database on port 80 (behind nginx)
+=======
+  elasticsearch service on port 80 (behind nginx)
+* Steps to create VM using =vagrant=
+- Download =ubuntu-14.04-amd64= vagrant box
+#+BEGIN_EXAMPLE
+cd ~
+wget https://github.com/kraksoft/vagrant-box-ubuntu/releases/download/14.04/ubuntu-14.04-amd64.box
+#+END_EXAMPLE
+- For more vagrant boxes [[http://www.vagrantbox.es/][visit]]
+- Add vagrant box
+#+BEGIN_EXAMPLE
+vagrant box add ubuntu-14.04-amd64.box
+#+END_EXAMPLE
+- Check box added/not
+#+BEGIN_EXAMPLE
+vagrant box list
+#+END_EXAMPLE
+- Create VM using box =ubuntu-14.04-amd64.box=
+#+BEGIN_EXAMPLE
+vagrant init ubuntu-14.04-amd64
+#+END_EXAMPLE
+- Boot the VM
+#+BEGIN_EXAMPLE
+vagrant up
+#+END_EXAMPLE
+- Login to the VM
+#+BEGIN_EXAMPLE
+vagrant ssh
+#+END_EXAMPLE
 * Steps to run =elasticsearch= service behind =nginx= on port =80=
 - [[./export-vagrant-box.org][Create VM]] using vagrant 
 - Update VM

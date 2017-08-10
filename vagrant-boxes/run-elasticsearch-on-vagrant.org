@@ -1,34 +1,8 @@
 * Introduction
   This document describes the steps to run elasticsearch service behind =nginx=
-  on vagrant VM
-- Download =ubuntu-14.04-amd64= vagrant box
-#+BEGIN_EXAMPLE
-cd ~
-wget https://github.com/kraksoft/vagrant-box-ubuntu/releases/download/14.04/ubuntu-14.04-amd64.box
-#+END_EXAMPLE
-- For more vagrant boxes [[http://www.vagrantbox.es/][visit]]
-- Add vagrant box
-#+BEGIN_EXAMPLE
-vagrant box add ubuntu-14.04-amd64.box
-#+END_EXAMPLE
-- Check box added/not
-#+BEGIN_EXAMPLE
-vagrant box list
-#+END_EXAMPLE
-- Create VM using box =ubuntu-14.04-amd64.box=
-#+BEGIN_EXAMPLE
-vagrant init ubuntu-14.04-amd64
-#+END_EXAMPLE
-- Boot the VM
-#+BEGIN_EXAMPLE
-vagrant up
-#+END_EXAMPLE
-- Login to the VM
-#+BEGIN_EXAMPLE
-vagrant ssh
-#+END_EXAMPLE
+  on VM using vagrant
 * Steps to run =elasticsearch= service behind =nginx= on port =80=
-- [[./export-vagrant-box.org][Create VM]] using vagrant 
+- [[https://github.com/vlead/vlead-templates/blob/develop/vagrant-boxes/export-vagrant-box.org#steps-to-create-vm-using-vagrant][Create VM]] using vagrant 
 - Update VM
 #+BEGIN_EXAMPLE
 sudo apt-get update -y
@@ -103,6 +77,10 @@ server {
 - Create symbolic link to nginx virtual conf file =elasticsearch=
 #+BEGIN_EXAMPLE
 sudo ln /etc/nginx/sites-available/elasticsearch /etc/nginx/sites-enabled/
+#+END_EXAMPLE
+- Remove =default= file from =nginx=
+#+BEGIN_EXAMPLE
+rm /etc/nginx/sites-enabled/default
 #+END_EXAMPLE
 - Reload nginx
 #+BEGIN_EXAMPLE

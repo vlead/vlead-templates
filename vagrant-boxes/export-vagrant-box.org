@@ -42,7 +42,7 @@ vagrant up
 #+BEGIN_EXAMPLE
 vagrant ssh
 #+END_EXAMPLE
-* Install  emacs
+* Install emacs
 #+BEGIN_EXAMPLE
 sudo apt-get update -y
 sudo apt-get install emacs -y

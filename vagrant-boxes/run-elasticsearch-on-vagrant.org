@@ -1,34 +1,8 @@
 * Introduction
   This document describes the steps to create the vagrant box which is running
   elasticsearch no sql database on port 80 (behind nginx)
-* Steps to create VM using =vagrant=
-- Download =ubuntu-14.04-amd64= vagrant box
-#+BEGIN_EXAMPLE
-cd ~
-wget https://github.com/kraksoft/vagrant-box-ubuntu/releases/download/14.04/ubuntu-14.04-amd64.box
-#+END_EXAMPLE
-- For more vagrant boxes [[http://www.vagrantbox.es/][visit]]
-- Add vagrant box
-#+BEGIN_EXAMPLE
-vagrant box add ubuntu-14.04-amd64.box
-#+END_EXAMPLE
-- Check box added/not
-#+BEGIN_EXAMPLE
-vagrant box list
-#+END_EXAMPLE
-- Create VM using box =ubuntu-14.04-amd64.box=
-#+BEGIN_EXAMPLE
-vagrant init ubuntu-14.04-amd64
-#+END_EXAMPLE
-- Boot the VM
-#+BEGIN_EXAMPLE
-vagrant up
-#+END_EXAMPLE
-- Login to the VM
-#+BEGIN_EXAMPLE
-vagrant ssh
-#+END_EXAMPLE
 * Steps to run =elasticsearch= service behind =nginx= on port =80=
+- [[./export-vagrant-box.org][Create VM]] using vagrant 
 - Update VM
 #+BEGIN_EXAMPLE
 sudo apt-get update -y
@@ -113,23 +87,7 @@ sudo service nginx reload
 sudo update-rc.d nginx defaults
 sudo update-rc.d elasticsearch defaults
 #+END_EXAMPLE
-* Steps to create vagrant box
-- Make the Box as Small as possible 
-  + We're now going to clean up disk space on the VM so when we package it into
-    a new Vagrant box, it's as clean as possible. First, remove APT cache
+- Access elasticsearch on browser
 #+BEGIN_EXAMPLE
-sudo apt-get clean
+firefox http://localhost
 #+END_EXAMPLE
-- Exit from the VM
-#+BEGIN_EXAMPLE
-exit
-#+END_EXAMPLE
-- Repackage the VM into a New Vagrant Box 
-#+BEGIN_EXAMPLE
-vagrant package --output ubutnu14.04-elasticsearch.box
-#+END_EXAMPLE
-- Check =ls= after few minutes =ubutnu14.04-elasticsearch.box= should be listed
-#+BEGIN_EXAMPLE
-ls
-#+END_EXAMPLE
-- vagrant box ready to use

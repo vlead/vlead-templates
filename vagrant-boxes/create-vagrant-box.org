@@ -24,7 +24,7 @@ wget https://github.com/kraksoft/vagrant-box-ubuntu/releases/download/14.04/ubun
 - For more vagrant boxes [[http://www.vagrantbox.es/][visit]]
 - Add vagrant box
 #+BEGIN_EXAMPLE
-vagrant box add ubuntu-14.04-amd64.box
+vagrant box add ubuntu-14.04-amd64 ubuntu-14.04-amd64.box
 #+END_EXAMPLE
 - Check box added/not
 #+BEGIN_EXAMPLE

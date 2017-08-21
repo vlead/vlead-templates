@@ -1,0 +1,72 @@
+
+* Introduction
+  This document describes the steps for creating vagrant box
+* Install Pre requisites
+  - Install vagrant 
+  - Install virtual-box supported versions(4.0.x, 4.1.x, 4.2.x, 4.3.x, 5.0.x, and 5.1.x)
+
+#+BEGIN_EXAMPLE
+apt-get install virtualbox
+apt-get install vagrant
+#+END_EXAMPLE
+  - Install the dkms package to ensure that the VirtualBox host kernel modules
+    (vboxdrv, vboxnetflt and vboxnetadp) are properly updated if the Linux
+    kernel version changes during the next apt-get upgrade.
+#+BEGIN_EXAMPLE
+apt-get install virtualbox-dkms
+#+END_EXAMPLE
+
+* Steps to create VM using =vagrant=
+- Download =ubuntu-14.04-amd64= vagrant box
+#+BEGIN_EXAMPLE
+cd ~
+wget https://github.com/kraksoft/vagrant-box-ubuntu/releases/download/14.04/ubuntu-14.04-amd64.box
+#+END_EXAMPLE
+- For more vagrant boxes [[http://www.vagrantbox.es/][visit]]
+- Add vagrant box
+#+BEGIN_EXAMPLE
+vagrant box add ubuntu-14.04-amd64 ubuntu-14.04-amd64.box
+#+END_EXAMPLE
+- Check box added/not
+#+BEGIN_EXAMPLE
+vagrant box list
+#+END_EXAMPLE
+- Create VM using box =ubuntu-14.04-amd64.box=
+#+BEGIN_EXAMPLE
+vagrant init ubuntu-14.04-amd64
+#+END_EXAMPLE
+- Boot the VM
+#+BEGIN_EXAMPLE
+vagrant up
+#+END_EXAMPLE
+- Login to the VM
+#+BEGIN_EXAMPLE
+vagrant ssh
+#+END_EXAMPLE
+* Install emacs
+#+BEGIN_EXAMPLE
+sudo apt-get update -y
+sudo apt-get install emacs -y
+#+END_EXAMPLE
+* Steps to create vagrant box
+
+- Make the Box as Small as possible 
+  + We're now going to clean up disk space on the VM so when we package it into
+    a new Vagrant box, it's as clean as possible. First, remove APT cache
+#+BEGIN_EXAMPLE
+sudo apt-get clean
+#+END_EXAMPLE
+- Exit from the VM
+#+BEGIN_EXAMPLE
+exit
+#+END_EXAMPLE
+- Repackage the VM into a =ubutnu14.04-with-emacs.box=
+#+BEGIN_EXAMPLE
+vagrant package --output ubutnu14.04-with-emacs.box
+#+END_EXAMPLE
+- List directory after few minutes =ubutnu14.04-with-emacs.box= should be
+  listed
+#+BEGIN_EXAMPLE
+ls
+#+END_EXAMPLE
+- vagrant box ready to use

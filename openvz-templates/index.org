@@ -1,2 +1,57 @@
 * Introduction
-  This document describes the steps for creating vagrant box
+  This document describes the steps for creating openvz templates
+
+* Steps to create openvz template
+
+- Download base openvz =ubuntu14.04= template
+#+BEGIN_EXAMPLE
+wget http://files.vlabs.ac.in/downloads/templates/ubuntu-14.04_x86_64-custom-emacs-nginx.tar.gz
+#+END_EXAMPLE
+
+- Create container using above downloaded template =ubuntu-14.04-x86_64.tar.gz=
+#+BEGIN_EXAMPLE
+vzctl create <CTID> --ostemplate ubuntu-14.04_x86_64 --ipadd <ip> --hostname <hostname> --diskspace <10G:15G>
+#+END_EXAMPLE
+- Start container
+#+BEGIN_EXAMPLE
+vzctl  start <CTID>
+#+END_EXAMPLE
+- Enter into the container
+#+BEGIN_EXAMPLE
+vzctl enter <CTID>
+sudo su -
+#+END_EXAMPLE
+- Setup proxy
+#+BEGIN_EXAMPLE
+export http_proxy="http://proxy.com:8080"
+export https_proxy="http://proxy.com:8080"
+#+END_EXAMPLE
+- Update container
+#+BEGIN_EXAMPLE
+apt-get update -y
+#+END_EXAMPLE
+- Install =java8=
+#+BEGIN_EXAMPLE
+apt-get install software-properties-common python-software-properties -y
+apt-add-repository ppa:webupd8team/java -y
+apt-get update -y
+echo 'oracle-java8-installer shared/accepted-oracle-license-v1-1 select true' | sudo debconf-set-selections
+apt-get install oracle-java8-installer -y
+#+END_EXAMPLE
+- Check java version
+#+BEGIN_EXAMPLE
+java -version
+#+END_EXAMPLE
+- Create template
+- Remove IP address
+
+#+BEGIN_EXAMPLE
+vzctl stop <CTID>
+vzctl set <CTID> --ipdel <ipadd> --save
+vzctl stop <CTID>
+#+END_EXAMPLE
+- Create =tar.gz= file
+#+BEGIN_EXAMPLE
+cd /vz/private/<CTID>
+tar -cvzpf ubuntu-14.04_x86_64-custom-java8 .
+#+END_EXAMPLE

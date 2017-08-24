@@ -1,5 +1,15 @@
+#+TITLE: Create Openvz template from existing template
+#+AUTHOR: VLEAD
+#+DATE: [2017-08-24 Thur]
+#+SETUPFILE: ./org-templates/level-0.org
+#+TAGS: boilerplate(b)
+#+EXCLUDE_TAGS: boilerplate
+#+OPTIONS: ^:nil
+
 * Introduction
-  This document describes the steps for creating openvz templates
+  This document describes the steps for creating openvz templates from existing
+  templates and runs you through creating new openvz template which comes with
+  installation of =java8=
 
 * Steps to create openvz template
 

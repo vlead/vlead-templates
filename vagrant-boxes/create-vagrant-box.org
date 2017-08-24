@@ -1,4 +1,3 @@
-
 * Introduction
   This document describes the steps for creating vagrant box
 * Install Pre requisites

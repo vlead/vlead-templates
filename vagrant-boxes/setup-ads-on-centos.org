@@ -35,32 +35,5 @@ vagrant ssh
 sudo su -
 #+END_EXAMPLE
 * Provision the machine to setup =ADS= service
-- Clone the git repository to setup the machine
-- Change branch to =develop=
-#+BEGIN_EXAMPLE
-git clone https://github.com/vlead/setup-ovpl-centos.git
-cd setup-ovpl-centos
-git checkout develop
-#+END_EXAMPLE
-* Steps to create vagrant box
-
-- Make the Box as Small as possible 
-  + We're now going to clean up disk space on the VM so when we package it into
-    a new Vagrant box, it's as clean as possible. First, remove APT cache
-#+BEGIN_EXAMPLE
-sudo apt-get clean
-#+END_EXAMPLE
-- Exit from the VM
-#+BEGIN_EXAMPLE
-exit
-#+END_EXAMPLE
-- Repackage the VM into a =ubutnu14.04-with-emacs.box=
-#+BEGIN_EXAMPLE
-vagrant package --output ubutnu14.04-with-emacs.box
-#+END_EXAMPLE
-- List directory after few minutes =ubutnu14.04-with-emacs.box= should be
-  listed
-#+BEGIN_EXAMPLE
-ls
-#+END_EXAMPLE
-- vagrant box ready to use
+* Configure the =ADS= service
+* Creating vagrant box

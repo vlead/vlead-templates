@@ -1,6 +1,6 @@
-#+TITLE: 
+#+TITLE: Create a vagrant box from an existing Vagrant machine
 #+AUTHOR: VLEAD
-#+DATE:
+#+DATE: [2017-11-06 Mon]
 #+SETUPFILE: ./org-templates/level-0.org
 #+TAGS: boilerplate(b)
 #+EXCLUDE_TAGS: boilerplate

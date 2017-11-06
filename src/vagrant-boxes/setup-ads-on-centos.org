@@ -1,0 +1,47 @@
+#+TITLE: 
+#+AUTHOR:VLEAD
+#+DATE:
+#+SETUPFILE: ./org-templates/level-0.org
+#+TAGS: boilerplate(b)
+#+EXCLUDE_TAGS: boilerplate
+#+OPTIONS: ^:nil
+
+* Introduction
+  This document describes the steps for setting up =ADS= service on vagrant
+  machine which uses =centos-6.5_x86_64= os
+* Assumption 
+  Here the assumption are following packages are installed in machine
+  - vagrant
+  - virtual-box (version 4.0.x, 4.1.x, 4.2.x, 4.3.x, 5.0.x, and 5.1.x)
+* Steps to create centos machine using =vagrant=
+- Download =centos-6.5_x86_64= vagrant box
+- Refer [[http://www.vagrantbox.es/][link]] for more vagrant boxes
+#+BEGIN_EXAMPLE
+cd ~
+wget https://github.com/2creatives/vagrant-centos/releases/download/v6.5.3/centos65-x86_64-20140116.box
+#+END_EXAMPLE
+- Add downloaded box =centos65-x86_64-20140116.box= to vagrant
+#+BEGIN_EXAMPLE
+vagrant box add ads-on-centos centos65-x86_64-20140116.box
+#+END_EXAMPLE
+- Check whether box is added/not
+#+BEGIN_EXAMPLE
+vagrant box list
+#+END_EXAMPLE
+- =ads-on-centos= should be listed 
+- Intialize the =ads-on-centos= machine
+#+BEGIN_EXAMPLE
+vagrant init ads-on-centos
+#+END_EXAMPLE
+- Boot the machine
+#+BEGIN_EXAMPLE
+vagrant up
+#+END_EXAMPLE
+- Login to the machine
+#+BEGIN_EXAMPLE
+vagrant ssh
+sudo su -
+#+END_EXAMPLE
+* Provision the machine to setup =ADS= service
+* Configure the =ADS= service
+* Creating vagrant box

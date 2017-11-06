@@ -1,4 +1,4 @@
-#+TITLE: Create a VLEAD open VZ template with git
+#+TITLE: Create a VLEAD OpenVZ template with git
 #+AUTHOR: VLEAD
 #+DATE: [2017-11-06 Mon]
 #+SETUPFILE: ./org-templates/level-0.org
@@ -7,12 +7,12 @@
 #+OPTIONS: ^:nil
 
 * Introduction
-  This document lists steps to create an open VZ
+  This document lists steps to create an OpenVZ
   template with the latest git version.  This template is
   built from the base template.
 
 * Requirements
-  1. All the requirements from [[https://github.com/vlead/vlead-templates/blob/develop/src/openvz-templates/create-base-openvz-template.org][base template]].
+  1. All requirements from [[./create-centos-6-9-base-template.org][base template]].
   2. Install git 2.7.4
 
 * Steps

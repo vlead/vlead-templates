@@ -1,4 +1,4 @@
-#+TITLE: Create a VLEAD base open VZ template
+#+TITLE: Create a VLEAD base OpenVZ template
 #+AUTHOR: VLEAD
 #+DATE: [2017-11-06 Mon]
 #+SETUPFILE: ./org-templates/level-0.org
@@ -7,7 +7,7 @@
 #+OPTIONS: ^:nil
 
 * Introduction
-  This document lists steps to create a base open VZ
+  This document lists steps to create a base OpenVZ
   template for VLEAD running centos 6.9. 
 
 * Requirements
@@ -23,7 +23,7 @@
    1.  Choose template =centos-6-x86-minimal= whose url is
       =http://download.openvz.org/template/precreated/centos-6-x86-minimal.tar.gz=
       and follow the steps listed in
-      [[https://github.com/vlead/vlead-templates/blob/develop/src/openvz-templates/create-container-from-template.org][create-container-from-template]].
+      [[./create-container-from-template.org][create-container-from-template]].
 
 ** Install [[https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiA1t_J16nXAhXKP48KHQeoBiwQFgglMAA&url=https%253A%252F%252Ffedoraproject.org%252Fwiki%252FEPEL&usg=AOvVaw1yI5PuhryGSuc3tbA5koOK][EPEL]]
    Enable REPL by executing the following [[https://www.liquidweb.com/kb/enable-epel-repository/][commands]]. 
@@ -38,6 +38,7 @@
    yum install emacs -y
    #+END_EXAMPLE
    The above command will install emacs with version 23.x
+
 ** Install [[http://www.linuxfromscratch.org/blfs/view/svn/basicnet/bind-utils.html][bind-utils]]
    [[https://wiki.linuxfoundation.org/networking/net-tools][net-tools]] are already installed. Installing bind-utils
    will install =dig=, =host= and =nslookup=
@@ -49,5 +50,5 @@
    After customization is done, 
    1. exit the container and 
    2. create the template =centos-6.9-x86-base.tar.gz= from
-      the base machine. Follow the [[https://github.com/vlead/vlead-templates/blob/develop/src/openvz-templates/create-template-from-container.org][steps]] to create the
+      the base machine. Follow the [[./create-template-from-container.org][steps]] to create the
       template.

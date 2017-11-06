@@ -7,10 +7,10 @@
 #+OPTIONS: ^:nil
 
 * Introduction
-  This document describes the steps for creating openvz
+  This document describes the steps for creating OpenVZ
   template from a running container. 
 
-* Steps to create openvz template
+* Steps to create OpenVZ template
   1. Stop the container
      #+BEGIN_EXAMPLE
      vzctl stop <CTID>

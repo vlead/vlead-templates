@@ -10,15 +10,12 @@
   This document lists all the available templates and how
   they are created. 
 
-* List of all Templates
-|------+-------------------------------------+----------|
-| S.No | Name                                | url      |
-|------+-------------------------------------+----------|
-|   1. | create-centos-6-9-base-template     | [[download]] |
-|------+-------------------------------------+----------|
-|   2. | create-centos-6-9-template-with-git | [[download]] |
-|------+-------------------------------------+----------|
-
-* [[./create-centos-6-9-base-template.org][create-centos-6-9-base-template]]
-
-* [[./create-centos-6-9-template-with-git.org][create-centos-6-9-template-with-git]]
+* Template list
+|------+------------------------------+----------+----------|
+| S.No | Name                         | url      | Creation |
+|      |                              |          | Steps    |
+|------+------------------------------+----------+----------|
+|   1. | centos-6.9-x86-base          | [[http://files.vlabs.ac.in/downloads/templates/centos-6.9-x86-base.tar.gz][download]] | [[./create-centos-6-9-base-template.org][steps]]    |
+|------+------------------------------+----------+----------|
+|   2. | centos-6.9-x86-base-with-git | [[http://files.vlabs.ac.in/downloads/templates/centos-6.9-x86-base-with-git.tar.gz][download]] | [[./create-centos-6-9-template-with-git.org][steps]]    |
+|------+------------------------------+----------+----------|

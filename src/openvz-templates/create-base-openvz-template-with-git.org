@@ -81,6 +81,37 @@
    yum install emacs -y
    #+END_EXAMPLE
    This will install emacs with version 23.x
+** Install git 2.7.4
+   Latest git is installed from the sources.  Please refer
+   [[https://stackoverflow.com/questions/21820715/how-to-install-latest-version-of-git-on-centos-6-x-7-x][here]]. 
+   - Steps:
+     1. Install Required Packages
+        #+BEGIN_EXAMPLE
+        yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel -y
+        yum install  gcc perl-ExtUtils-MakeMaker -y
+        #+END_EXAMPLE
+     2. Uninstall old Git RPM
+        #+BEGIN_EXAMPLE
+        yum remove git
+        #+END_EXAMPLE
+     3. Download and Compile Git Source
+        #+BEGIN_EXAMPLE
+        cd /usr/src
+        wget https://www.kernel.org/pub/software/scm/git/git-2.7.4.tar.gz
+        tar xzf git-2.7.4.tar.gz
+        #+END_EXAMPLE
+     4. Compile sources
+        #+BEGIN_EXAMPLE
+        cd git-2.7.4
+        make prefix=/usr/local/git all
+        make prefix=/usr/local/git install
+        echo 'export PATH=$PATH:/usr/local/git/bin' >> /etc/bashrc
+        source /etc/bashrc
+        #+END_EXAMPLE
+     5. Check git version
+        #+BEGIN_EXAMPLE
+        git --version
+        #+END_EXAMPLE
 ** Install [[http://www.linuxfromscratch.org/blfs/view/svn/basicnet/bind-utils.html][bind-utils]]
    #+BEGIN_EXAMPLE
    yum install bind-utils -y

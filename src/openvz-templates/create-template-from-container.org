@@ -1,0 +1,27 @@
+#+TITLE: Create OpenVZ template from existing OpenVZ container
+#+AUTHOR: VLEAD
+#+DATE: [2017-08-24 Thur]
+#+SETUPFILE: ./org-templates/level-0.org
+#+TAGS: boilerplate(b)
+#+EXCLUDE_TAGS: boilerplate
+#+OPTIONS: ^:nil
+
+* Introduction
+  This document describes the steps for creating openvz
+  template from a running container. 
+
+* Steps to create openvz template
+  1. Stop the container
+     #+BEGIN_EXAMPLE
+     vzctl stop <CTID>
+     #+END_EXAMPLE
+  2. Delete the IP of the container
+     #+BEGIN_EXAMPLE
+     vzctl set <CTID> --ipdel <ipadd> --save
+     #+END_EXAMPLE
+
+  3. Create =tar.gz= file
+     #+BEGIN_EXAMPLE
+     cd /vz/private/<CTID>
+     tar -cvzpf <name-of-tempalte> .
+     #+END_EXAMPLE

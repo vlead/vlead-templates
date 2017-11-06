@@ -1,6 +1,14 @@
+#+TITLE: 
+#+AUTHOR: VLEAD
+#+DATE:
+#+SETUPFILE: ./org-templates/level-0.org
+#+TAGS: boilerplate(b)
+#+EXCLUDE_TAGS: boilerplate
+#+OPTIONS: ^:nil
 
 * Introduction
   This document describes the steps for creating vagrant box
+  from an existing vagrant virtual machine.
 * Install Pre requisites
   - Install vagrant 
   - Install virtual-box supported versions(4.0.x, 4.1.x, 4.2.x, 4.3.x, 5.0.x, and 5.1.x)

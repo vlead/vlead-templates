@@ -1,0 +1,11 @@
+#+TITLE: Create a vagrant box with ADS deployed over centos and OpenVz
+#+AUTHOR: VLEAD
+#+DATE: [2017-08-23 Wed]
+#+SETUPFILE: ./org-templates/level-0.org
+#+TAGS: boilerplate(b)
+#+EXCLUDE_TAGS: boilerplate
+#+OPTIONS: ^:nil
+
+* Introduction
+  This document 
+

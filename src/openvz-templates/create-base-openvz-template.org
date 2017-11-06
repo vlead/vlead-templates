@@ -96,3 +96,7 @@
    yum install bind-utils -y
    #+END_EXAMPLE
    
+** Create template
+   After the customization, create the template
+   =centos-6.9-x86-base.tar.gz=.
+   Follow the [[https://github.com/vlead/vlead-templates/blob/develop/src/openvz-templates/create-template-from-container.org][steps]] to create the template. 

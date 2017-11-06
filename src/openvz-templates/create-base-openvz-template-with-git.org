@@ -1,4 +1,4 @@
-#+TITLE: Create a VLEAD base open VZ template
+#+TITLE: Create a VLEAD open VZ template with git
 #+AUTHOR: VLEAD
 #+DATE: [2017-11-06 Mon]
 #+SETUPFILE: ./org-templates/level-0.org
@@ -7,8 +7,9 @@
 #+OPTIONS: ^:nil
 
 * Introduction
-  This document lists steps to create a base open VZ
-  template for VLEAD.
+  This document lists steps to create an open VZ
+  template with the latest git version.  This template is
+  built from the base template.
 
 * Requirements
   1. Update the machine with 6.9 version
@@ -17,70 +18,9 @@
   3. Install git 2.7.4
 
 * Steps
-** Create the machine from a template
-  1. Download the template from the internet
-     #+BEGIN_EXAMPLE
-     wget http://download.openvz.org/template/precreated/centos-6-x86-minimal.tar.gz
-     #+END_EXAMPLE
-  2. Create a machine with the above template.
-
-     #+BEGIN_EXAMPLE
-     vzctl create <ctid>  --ostemplate <ostemplate> --diskspace <diskspace> --hostname <hostname> --ipadd <ipaddress>
-     #+END_EXAMPLE
-
-     #+BEGIN_EXAMPLE
-      vzctl create 1245  --ostemplate centos-6-x86-minimal --diskspace 10G:15.0G --hostname centos-template.vlabs.ac.in --ipadd 10.4.12.45
-     #+END_EXAMPLE
-  3. Start the newly created container
-
-     #+BEGIN_EXAMPLE
-     vzctl start <ctid>
-     #+END_EXAMPLE
-
-     #+BEGIN_EXAMPLE
-     vzctl start 1245
-     #+END_EXAMPLE
-  4. Enter the machine
-     #+BEGIN_EXAMPLE
-     vzctl enter <ctid>
-     #+END_EXAMPLE
-
-     #+BEGIN_EXAMPLE
-     vzctl enter 1245
-     su -
-     #+END_EXAMPLE
-** Update the machine
-   After creation of machine, set the proxy and install any
-   updates.
-
-   Steps:
-   1. Set proxy
-      #+BEGIN_EXAMPLE
-      export http_proxy="http://proxy.iiit.ac.in:8080"
-      export https_proxy="http://proxy.iiit.ac.in:8080"
-      #+END_EXAMPLE
-   2. Update 
-      #+BEGIN_EXAMPLE
-       yum update -y
-      #+END_EXAMPLE
-
-** Install rpmforge
-   - rpmforge is now repoforge.  Refer [[http://repoforge.org/][here]].
-   - From the same web site :: The RepoForge project
-        maintains RPM packages for: * Red Hat Enterprise
-        Linux (RHEL) * CentOS * Scientific Linux
-   - use rpmforge :: [[http://repoforge.org/use/][reference]]
-     #+BEGIN_EXAMPLE
-     wget http://repository.it4i.cz/mirrors/repoforge/redhat/el6/en/i386/rpmforge/RPMS/rpmforge-release-0.5.3-1.el6.rf.i686.rpm
-     rpm -ivh rpmforge-release-0.5.3-1.el6.rf.i686.rpm
-     #+END_EXAMPLE
-
-
-** Install Emacs
-   #+BEGIN_EXAMPLE
-   yum install emacs -y
-   #+END_EXAMPLE
-   This will install emacs with version 23.x
+** Build from the base template
+   Follow the steps listed at [[https://github.com/vlead/vlead-templates/blob/develop/src/openvz-templates/create-base-openvz-template-with-git.org][base template steps]] to create
+   a base template.  
 ** Install git 2.7.4
    Latest git is installed from the sources.  Please refer
    [[https://stackoverflow.com/questions/21820715/how-to-install-latest-version-of-git-on-centos-6-x-7-x][here]]. 
@@ -112,8 +52,4 @@
         #+BEGIN_EXAMPLE
         git --version
         #+END_EXAMPLE
-** Install [[http://www.linuxfromscratch.org/blfs/view/svn/basicnet/bind-utils.html][bind-utils]]
-   #+BEGIN_EXAMPLE
-   yum install bind-utils -y
-   #+END_EXAMPLE
-   
+

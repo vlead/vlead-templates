@@ -8,12 +8,12 @@
 
 * Introduction
   This document lists steps to create a base open VZ
-  template for VLEAD.
+  template for VLEAD running centos 6.9. 
 
 * Requirements
-  1. Update the machine with 6.9 version
+  1. Run 6.9 version of CentOS operating system.
   2. Install Emacs for developer environment.  Here version
-     is not important. 
+     is not important.
   3. Install git 2.7.4
 
 * Steps
@@ -40,6 +40,7 @@
      #+BEGIN_EXAMPLE
      vzctl start 1245
      #+END_EXAMPLE
+
   4. Enter the machine
      #+BEGIN_EXAMPLE
      vzctl enter <ctid>
@@ -50,7 +51,7 @@
      su -
      #+END_EXAMPLE
 ** Update the machine
-   After creation of machine, set the proxy and install any
+   After creation of machine, set the proxy and install all
    updates.
 
    Steps:
@@ -75,13 +76,14 @@
      rpm -ivh rpmforge-release-0.5.3-1.el6.rf.i686.rpm
      #+END_EXAMPLE
 
-
 ** Install Emacs
+   Install editor. 
    #+BEGIN_EXAMPLE
    yum install emacs -y
    #+END_EXAMPLE
    This will install emacs with version 23.x
 ** Install [[http://www.linuxfromscratch.org/blfs/view/svn/basicnet/bind-utils.html][bind-utils]]
+   Installing bind-utils will install =dig=, =host= and =nslookup=
    #+BEGIN_EXAMPLE
    yum install bind-utils -y
    #+END_EXAMPLE

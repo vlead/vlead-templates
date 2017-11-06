@@ -17,7 +17,7 @@
      #+END_EXAMPLE
   2. Delete the IP of the container
      #+BEGIN_EXAMPLE
-     vzctl set <CTID> --ipdel <ipadd> --save
+     vzctl set <CTID> --ipdel <ipaddress> --save
      #+END_EXAMPLE
 
   3. Create =tar.gz= file

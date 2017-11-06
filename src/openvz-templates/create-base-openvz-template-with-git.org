@@ -12,35 +12,49 @@
   built from the base template.
 
 * Requirements
-  1. Update the machine with 6.9 version
-  2. Install Emacs for developer environment.  Here version
-     is not important. 
-  3. Install git 2.7.4
+  1. All the requirements from [[https://github.com/vlead/vlead-templates/blob/develop/src/openvz-templates/create-base-openvz-template.org][base template]].
+  2. Install git 2.7.4
 
 * Steps
 ** Build from the base template
-   Follow the steps listed at [[https://github.com/vlead/vlead-templates/blob/develop/src/openvz-templates/create-base-openvz-template-with-git.org][base template steps]] to create
-   a base template.  
+   1. A container is to be created.  This container can
+      either be:
+      1. created from an already existing [[http://files.vlabs.ac.in/downloads/templates/centos-6.9-x86-base.tar.gz][base]] template.
+         Follow the steps listed in the heading =create the
+         machine from a template= from base template
+         creation [[https://github.com/vlead/vlead-templates/blob/develop/src/openvz-templates/create-base-openvz-template.org][document]].
+      2. or created from scratch and follow all the steps
+         listed in [[https://github.com/vlead/vlead-templates/blob/develop/src/openvz-templates/create-base-openvz-template.org][base template creation]] except for the
+         last step which shows how to create a template from
+         a container.
+
 ** Install git 2.7.4
    Latest git is installed from the sources.  Please refer
    [[https://stackoverflow.com/questions/21820715/how-to-install-latest-version-of-git-on-centos-6-x-7-x][here]]. 
    - Steps:
-     1. Install Required Packages
+     1. Login to the container that is created from the
+        above steps and set the proxy. 
+        #+BEGIN_EXAMPLE
+        su -
+        export http_proxy="http://proxy.iiit.ac.in:8080"
+        export https_proxy="http://proxy.iiit.ac.in:8080"
+        #+END_EXAMPLE
+     2. Install Required Packages
         #+BEGIN_EXAMPLE
         yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel -y
         yum install  gcc perl-ExtUtils-MakeMaker -y
         #+END_EXAMPLE
-     2. Uninstall old Git RPM
+     3. Uninstall old Git RPM
         #+BEGIN_EXAMPLE
         yum remove git
         #+END_EXAMPLE
-     3. Download and Compile Git Source
+     4. Download and Compile Git Source
         #+BEGIN_EXAMPLE
         cd /usr/src
         wget https://www.kernel.org/pub/software/scm/git/git-2.7.4.tar.gz
         tar xzf git-2.7.4.tar.gz
         #+END_EXAMPLE
-     4. Compile sources
+     5. Compile sources
         #+BEGIN_EXAMPLE
         cd git-2.7.4
         make prefix=/usr/local/git all
@@ -48,8 +62,14 @@
         echo 'export PATH=$PATH:/usr/local/git/bin' >> /etc/bashrc
         source /etc/bashrc
         #+END_EXAMPLE
-     5. Check git version
+     6. Check git version
         #+BEGIN_EXAMPLE
         git --version
         #+END_EXAMPLE
 
+** Create template
+   After customization is done, 
+   1. exit the container and 
+   2. create the template
+      =centos-6.9-x86-base-with-git.tar.gz= from the base
+      machine. Follow the [[https://github.com/vlead/vlead-templates/blob/develop/src/openvz-templates/create-template-from-container.org][steps]] to create the template.

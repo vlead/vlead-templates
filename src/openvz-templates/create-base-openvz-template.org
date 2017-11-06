@@ -12,9 +12,10 @@
 
 * Requirements
   1. Install 6.9 version of CentOS operating system.
-  2. Install Emacs for developer environment.  Here version
+  2. Support to install third party software
+  3. Install Emacs for developer environment.  Here version
      is not important.
-  3. Install network utilities
+  4. Install network utilities
 
 * Steps
 ** Create the machine from a template
@@ -71,16 +72,11 @@
        yum update -y
       #+END_EXAMPLE
 
-** Install rpmforge
-   - rpmforge is now repoforge.  Refer [[http://repoforge.org/][here]].
-   - From the same web site :: The RepoForge project
-        maintains RPM packages for: * Red Hat Enterprise
-        Linux (RHEL) * CentOS * Scientific Linux
-   - use rpmforge :: [[http://repoforge.org/use/][reference]]
-     #+BEGIN_EXAMPLE
-     wget http://repository.it4i.cz/mirrors/repoforge/redhat/el6/en/i386/rpmforge/RPMS/rpmforge-release-0.5.3-1.el6.rf.i686.rpm
-     rpm -ivh rpmforge-release-0.5.3-1.el6.rf.i686.rpm
-     #+END_EXAMPLE
+** Install [[https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiA1t_J16nXAhXKP48KHQeoBiwQFgglMAA&url=https%253A%252F%252Ffedoraproject.org%252Fwiki%252FEPEL&usg=AOvVaw1yI5PuhryGSuc3tbA5koOK][EPEL]]
+   Enable REPL by executing the following [[https://www.liquidweb.com/kb/enable-epel-repository/][commands]]. 
+   #+BEGIN_EXAMPLE
+   yum install epel-release -y
+   #+END_EXAMPLE
 
 ** Install emacs
    Emacs is an editor.  Installation of emacs is necessary
@@ -97,6 +93,8 @@
    #+END_EXAMPLE
    
 ** Create template
-   After the customization, create the template
-   =centos-6.9-x86-base.tar.gz=.
-   Follow the [[https://github.com/vlead/vlead-templates/blob/develop/src/openvz-templates/create-template-from-container.org][steps]] to create the template. 
+   After customization is done, 
+   1. exit the container and 
+   2. create the template =centos-6.9-x86-base.tar.gz= from
+      the base machine. Follow the [[https://github.com/vlead/vlead-templates/blob/develop/src/openvz-templates/create-template-from-container.org][steps]] to create the
+      template.

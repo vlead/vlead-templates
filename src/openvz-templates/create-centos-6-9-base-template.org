@@ -20,57 +20,10 @@
 * Steps
 ** Create the machine from a template
    
-   1. Download the template from the internet.  The template
-      to be downloaded should have =centos 6= operating
-      system.
-      #+BEGIN_EXAMPLE
-      wget http://download.openvz.org/template/precreated/centos-6-x86-minimal.tar.gz
-      #+END_EXAMPLE
-
-   2. Create a machine with the above template.
-
-      #+BEGIN_EXAMPLE
-      vzctl create <ctid>  --ostemplate <ostemplate> --diskspace <diskspace> --hostname <hostname> --ipadd <ipaddress>
-      #+END_EXAMPLE
-
-      #+BEGIN_EXAMPLE
-      vzctl create 1245  --ostemplate centos-6-x86-minimal --diskspace 10G:15.0G --hostname centos-template.vlabs.ac.in --ipadd 10.4.12.45
-      #+END_EXAMPLE
-
-  3.  Start the newly created container
-
-     #+BEGIN_EXAMPLE
-     vzctl start <ctid>
-     #+END_EXAMPLE
-
-     #+BEGIN_EXAMPLE
-     vzctl start 1245
-     #+END_EXAMPLE
-
-  4. Login to the machine
-     #+BEGIN_EXAMPLE
-     vzctl enter <ctid>
-     #+END_EXAMPLE
-
-     #+BEGIN_EXAMPLE
-     vzctl enter 1245
-     su -
-     #+END_EXAMPLE
-
-** Update the machine
-   After creation of machine, set the proxy and install all
-   updates.
-
-   Steps:
-   1. Set proxy
-      #+BEGIN_EXAMPLE
-      export http_proxy="http://proxy.iiit.ac.in:8080"
-      export https_proxy="http://proxy.iiit.ac.in:8080"
-      #+END_EXAMPLE
-   2. Update 
-      #+BEGIN_EXAMPLE
-       yum update -y
-      #+END_EXAMPLE
+   1.  Choose template =centos-6-x86-minimal= whose url is
+      =http://download.openvz.org/template/precreated/centos-6-x86-minimal.tar.gz=
+      and follow the steps listed in
+      [[https://github.com/vlead/vlead-templates/blob/develop/src/openvz-templates/create-container-from-template.org][create-container-from-template]].
 
 ** Install [[https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiA1t_J16nXAhXKP48KHQeoBiwQFgglMAA&url=https%253A%252F%252Ffedoraproject.org%252Fwiki%252FEPEL&usg=AOvVaw1yI5PuhryGSuc3tbA5koOK][EPEL]]
    Enable REPL by executing the following [[https://www.liquidweb.com/kb/enable-epel-repository/][commands]]. 

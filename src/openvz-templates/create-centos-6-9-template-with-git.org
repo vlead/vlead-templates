@@ -16,17 +16,12 @@
   2. Install git 2.7.4
 
 * Steps
-** Build from the base template
-   1. A container is to be created.  This container can
-      either be:
-      1. created from an already existing [[http://files.vlabs.ac.in/downloads/templates/centos-6.9-x86-base.tar.gz][base]] template.
-         Follow the steps listed in the heading =create the
-         machine from a template= from base template
-         creation [[https://github.com/vlead/vlead-templates/blob/develop/src/openvz-templates/create-base-openvz-template.org][document]].
-      2. or created from scratch and follow all the steps
-         listed in [[https://github.com/vlead/vlead-templates/blob/develop/src/openvz-templates/create-base-openvz-template.org][base template creation]] except for the
-         last step which shows how to create a template from
-         a container.
+** Create Container
+   Choose template =centos-6.9-x86-base= whose
+   url is
+   =http://files.vlabs.ac.in/downloads/templates/centos-6.9-x86-base.tar.gz=
+   and follow the steps listed in
+   [[./create-container-from-template.org][create-container-from-template]].
 
 ** Install git 2.7.4
    Latest git is installed from the sources.  Please refer

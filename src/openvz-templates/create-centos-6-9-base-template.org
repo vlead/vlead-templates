@@ -29,8 +29,6 @@
 ** Install base software packages
    Run steps listed in [[../base-software-centos.org][base software]] required for centos 6.9.
 ** Create template
-   After customization is done, 
-   1. exit the container and 
-   2. create the template =centos-6.9-x86-base.tar.gz= from
-      the base machine. Follow the [[./create-template-from-container.org][steps]] to create the
-      template.
+   After customization is done, create the template
+   =centos-6.9-x86-base.tar.gz= from the base
+   machine. Follow the [[./create-template-from-container.org][steps]] to create the template.

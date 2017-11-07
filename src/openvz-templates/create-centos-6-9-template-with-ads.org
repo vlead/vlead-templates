@@ -7,9 +7,9 @@
 #+OPTIONS: ^:nil
 
 * Introduction
-  This document lists steps to create an OpenVZ
-  template with the latest git version.  This template is
-  built from the base template.
+  This document lists steps to create an OpenVZ template
+  with the latest git version.  This template is built from
+  the base template.
 
 * Requirements
   1. All requirements from [[./create-centos-6-9-base-template.org][base template]].
@@ -23,7 +23,9 @@
    Choose template =centos-6.9-x86-base= whose url is
    =http://files.vlabs.ac.in/downloads/templates/centos-6.9-x86-base.tar.gz=
    and follow the steps listed in
-   [[./create-container-from-template.org][create-container-from-template]].
+   [[./create-container-from-template.org][create-container-from-template]] with the inputs where
+   1. =<url-of-template>= is =http://files.vlabs.ac.in/downloads/templates/centos-6.9-x86-base.tar.gz=
+   2. =<ostemplate>= is =centos-6.9-x86-base=
 
 ** Get the sources to provision the machine to run ADS
    

@@ -1,0 +1,59 @@
+#+TITLE: Create a vagrant box with CentOS and OpenVZ
+#+AUTHOR: VLEAD
+#+DATE: [2017-08-23 Wed]
+#+SETUPFILE: ./org-templates/level-0.org
+#+TAGS: boilerplate(b)
+#+EXCLUDE_TAGS: boilerplate
+#+OPTIONS: ^:nil
+
+* Introduction
+  This document describes how to create a vagrant box with
+  CentOS and OpenVZ.  CentOS is operating system and OpenVZ
+  is a container based virtualization for linux. 
+
+
+* Steps
+  1. Create a directory =centos-openvz= and change directory
+     to it.
+     #+BEGIN_EXAMPLE
+     mkdir centos-openvz
+     cd centos-openvz
+     #+END_EXAMPLE
+
+  2. [[https://www.vagrantup.com/docs/cli/init.html][Initialize]] the current directory for vagrant
+     environment.
+     #+BEGIN_EXAMPLE
+     vagrant init
+     #+END_EXAMPLE
+
+  3. Configure the box for CentOS.  Set the variable
+     =config.vm.box= in the =Vagrantfile= to =centos/6=.
+     #+BEGIN_EXAMPLE
+     config.vm.box = "centos/6"
+     #+END_EXAMPLE
+
+  4. Configure for ssh connection
+     #+BEGIN_EXAMPLE
+     Vagrant.configure("2") do |config|                                                                                   
+       config.vm.box = "centos/6"                                                                                         
+       config.ssh.private_key_path = "~/.ssh/id_rsa"                                                          
+       config.ssh.forward_agent = true
+     end
+     #+END_EXAMPLE
+
+  5. Copy the public key to the vagrant machine :: To do
+       this step, enable the gui option and reload.  This
+       will open a new terminal.  Login to the terminal
+       using =vagrant/vagrant= as user-id and password.
+       After rsync the id_rsa.pub from the host machine and
+       copy to authorized_keys file for both vagrant and
+       root accounts.  Ensure that =.ssh= directory has 700
+       and =authorized_keys= has 600 permissions.
+
+  6. Create the machine by running =vagrant up=.
+     #+BEGIN_EXAMPLE
+     vagrant up
+     #+END_EXAMPLE
+
+  7. Follow the steps from [[../base-software-centos.org][=base software=]] installation
+     document to install software packages. 

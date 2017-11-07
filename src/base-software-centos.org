@@ -1,0 +1,40 @@
+#+TITLE: Base software required for a CentOS machine
+#+AUTHOR: VLEAD
+#+DATE: [2017-11-07 Tue]
+#+SETUPFILE: ./org-templates/level-0.org
+#+TAGS: boilerplate(b)
+#+EXCLUDE_TAGS: boilerplate
+#+OPTIONS: ^:nil
+
+* Introduction
+  This document tells us different software packages
+  installed to create a base CentOS machine. 
+
+* Install [[https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiA1t_J16nXAhXKP48KHQeoBiwQFgglMAA&url=https%253A%252F%252Ffedoraproject.org%252Fwiki%252FEPEL&usg=AOvVaw1yI5PuhryGSuc3tbA5koOK][EPEL]]
+  Enable REPL by executing the following [[https://www.liquidweb.com/kb/enable-epel-repository/][commands]]. 
+  #+BEGIN_EXAMPLE
+   yum install epel-release -y
+  #+END_EXAMPLE
+
+* Install git
+  This version will be =1.7.1=.  This version will later be
+  upgraded for full functionality of git. 
+  #+BEGIN_EXAMPLE
+  yum install git -y
+  #+END_EXAMPLE
+* Install emacs
+  Emacs is an editor.  Installation of emacs is necessary
+  since VLEAD's default editor is emacs.
+  #+BEGIN_EXAMPLE
+   yum install emacs -y
+  #+END_EXAMPLE
+  The above command will install emacs with version 23.x
+
+* Install [[http://www.linuxfromscratch.org/blfs/view/svn/basicnet/bind-utils.html][bind-utils]]
+  [[https://wiki.linuxfoundation.org/networking/net-tools][net-tools]] are already installed. Installing bind-utils
+  will install =dig=, =host= and =nslookup=
+  #+BEGIN_EXAMPLE
+   yum install bind-utils -y
+  #+END_EXAMPLE
+   
+

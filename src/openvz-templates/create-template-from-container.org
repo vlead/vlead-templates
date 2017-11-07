@@ -11,16 +11,35 @@
   template from a running container. 
 
 * Steps to create OpenVZ template
-  1. Stop the container
+  
+  1. Comment the default network settings at
+     =/etc/sysconfig/newtwork= as shown below.  The
+     disabling gateway is to ensure that the gateway used in
+     this container in not applied to a new container
+     created from this template.
+     #+BEGIN_EXAMPLE
+     #NETWORKING="yes"                                                                                                      
+     #GATEWAYDEV="venet0"                                                                                                   
+     #NETWORKING_IPV6="yes"                                                                                                 
+     #IPV6_DEFAULTDEV="venet0" 
+     #+END_EXAMPLE
+
+  2. Exit the from the machine
+     #+BEGIN_EXAMPLE
+     exit
+     #+END_EXAMPLE
+
+  3. Stop the container
      #+BEGIN_EXAMPLE
      vzctl stop <CTID>
      #+END_EXAMPLE
-  2. Delete the IP of the container
+
+  4. Delete the IP of the container
      #+BEGIN_EXAMPLE
      vzctl set <CTID> --ipdel <ipaddress> --save
      #+END_EXAMPLE
 
-  3. Create =tar.gz= file
+  5. Create =tar.gz= file
      #+BEGIN_EXAMPLE
      cd /vz/private/<CTID>
      tar -cvzpf <name-of-tempalte> .

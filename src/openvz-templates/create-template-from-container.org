@@ -13,7 +13,7 @@
 * Steps to create OpenVZ template
   
   1. Comment the default network settings at
-     =/etc/sysconfig/newtwork= as shown below.  The
+     =/etc/sysconfig/network= as shown below.  The
      disabling gateway is to ensure that the gateway used in
      this container in not applied to a new container
      created from this template.

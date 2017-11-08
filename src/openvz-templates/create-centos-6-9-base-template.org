@@ -8,7 +8,7 @@
 
 * Introduction
   This document lists steps to create a base OpenVZ
-  template for VLEAD running centos 6.9. 
+  template for VLEAD running CentOS 6.9. 
 
 * Requirements
   1. Install 6.9 version of CentOS operating system.

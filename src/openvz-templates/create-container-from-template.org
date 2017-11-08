@@ -19,7 +19,7 @@
       #+END_EXAMPLE
 
       #+BEGIN_EXAMPLE
-      wget http://download.openvz.org/template/precreated/centos-6-x86-minimal.tar.gz
+      wget http://download.openvz.org/template/precreated/centos-6-x86_64.tar.gz
       #+END_EXAMPLE
 
    2. Create a machine with the above template
@@ -30,10 +30,10 @@
       
       Where =<ostemplate>= is name of the template file
       without =.tar.gz=. In above step(1) <ostemplate> is
-      =centos-6-x86-minimal=
+      =centos-6-x86_64=
 
       #+BEGIN_EXAMPLE
-      vzctl create 1245  --ostemplate centos-6-x86-minimal --diskspace 10G:15.0G --hostname centos-template.vlabs.ac.in --ipadd 10.4.12.45
+      vzctl create 1245  --ostemplate centos-6-x86_64 --diskspace 10G:15.0G --hostname centos-template.vlabs.ac.in --ipadd 10.4.12.45
       #+END_EXAMPLE
 
   3.  Start the newly created container

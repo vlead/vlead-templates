@@ -1,0 +1,38 @@
+#+TITLE: Configure SSH Keys on the vagrant machine
+#+AUTHOR: VLEAD
+#+DATE: [2017-12-19 Tue]
+#+SETUPFILE: ./org-templates/level-0.org
+#+TAGS: boilerplate(b)
+#+EXCLUDE_TAGS: boilerplate
+#+OPTIONS: ^:nil
+
+* Introduction
+  This document tells us how to configure ssh keys on the
+  newly created vagrant machine such that while =vagrant
+  up=, the process does not hang while emitting the
+  following message. 
+  #+BEGIN_EXAMPLE
+  default: SSH auth method: private key
+  default: Warning: Remote connection disconnect. Retrying...
+  default: Warning: Remote connection disconnect. Retrying...
+  ......
+  ......
+  #+END_EXAMPLE
+
+* Configure for ssh connection
+     #+BEGIN_EXAMPLE
+     Vagrant.configure("2") do |config|                                                                                   
+       .....
+       config.ssh.private_key_path = "~/.ssh/id_rsa"                                                          
+       config.ssh.forward_agent = true
+     end
+     #+END_EXAMPLE
+
+* Copy the public key to the vagrant machine
+  To do this step, enable the gui option and reload.  This
+  will open a new terminal.  Login to the terminal using
+  =vagrant/vagrant= as user-id and password.  After rsync
+  the id_rsa.pub from the host machine and copy to
+  authorized_keys file for both vagrant and root accounts.
+  Ensure that =.ssh= directory has 700 and =authorized_keys=
+  has 600 permissions.
